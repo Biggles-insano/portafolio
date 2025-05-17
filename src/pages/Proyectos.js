@@ -4,25 +4,25 @@ const proyectos = [
   {
     id: 1,
     titulo: 'by Víctor Mejía',
-    imagen: 'https://cdn.ferrari.com/images/collections/new-arrivals.jpg', 
+    imagen: 'https://cdn.ferrari.com/images/collections/new-arrivals.jpg',
     enlace: 'https://github.com/Biggles-insano/byvictormejia',
   },
   {
     id: 2,
     titulo: 'API de Incidentes',
-    imagen: 'https://cdn.ferrari.com/images/magazine/speed-beauty.jpg', 
+    imagen: 'https://cdn.ferrari.com/images/magazine/speed-beauty.jpg',
     enlace: 'https://github.com/Biggles-insano/api',
   },
   {
     id: 3,
     titulo: 'Cronómetro con Node.js',
-    imagen: 'https://cdn.ferrari.com/images/racing/cars.jpg', 
-    enlace: 'https://github.com/Biggles-insano/cronometro'
+    imagen: 'https://cdn.ferrari.com/images/racing/cars.jpg',
+    enlace: 'https://github.com/Biggles-insano/cronometro',
   },
   {
     id: 4,
     titulo: 'useContext',
-    imagen: 'https://cdn.ferrari.com/images/experiences/events.jpg', 
+    imagen: 'https://cdn.ferrari.com/images/experiences/events.jpg',
     enlace: 'https://github.com/Biggles-insano/usecontext',
   },
 ];
@@ -31,11 +31,14 @@ function Proyectos() {
   return (
     <section
       id="proyectos"
+    
       style={{
         padding: '0',
-        backgroundColor: '#111',
+        backgroundColor: 'transparent',
         color: '#fff',
         minHeight: '100vh',
+        padding: '3rem 0'
+
       }}
     >
       <h2 style={{ textAlign: 'center', margin: '3rem 0', fontSize: '2.5rem', fontWeight: 'bold' }}>
@@ -49,7 +52,7 @@ function Proyectos() {
           gap: '0',
           maxWidth: '1200px',
           margin: '0 auto',
-          height: 'calc(100vh - 120px)', // altura total menos título y márgenes
+          height: 'calc(100vh - 120px)',
         }}
       >
         {proyectos.map(({ id, titulo, imagen, enlace }) => (
@@ -78,6 +81,7 @@ function Proyectos() {
               className="img-proyecto"
             />
             <div
+              className="overlay"
               style={{
                 position: 'absolute',
                 top: 0,
@@ -91,18 +95,25 @@ function Proyectos() {
                 backgroundColor: 'rgba(0,0,0,0.4)',
                 opacity: 0,
                 transition: 'opacity 0.4s ease',
-                color: '#fff',
                 textAlign: 'center',
                 padding: '1rem',
               }}
-              className="overlay"
             >
-              <p style={{ fontSize: '1rem', letterSpacing: '3px', marginBottom: '0.5rem' }}>
-                {titulo.includes(' - ') ? titulo.split(' - ')[0].toUpperCase() : 'COLECCIONES'}
-              </p>
-              <h3 style={{ fontSize: '2rem', fontWeight: 'bold' }}>
-                {titulo.includes(' - ') ? titulo.split(' - ')[1].toUpperCase() : titulo.toUpperCase()}
-              </h3>
+              {titulo.includes(' - ') ? (
+                <>
+                  <p style={{ fontSize: '1rem', letterSpacing: '3px', marginBottom: '0.5rem' }}>
+                    {titulo.split(' - ')[0].toUpperCase()}
+                  </p>
+                  <h3 style={{ fontSize: '2rem', fontWeight: 'bold' }}>
+                    {titulo.split(' - ')[1].toUpperCase()}
+                  </h3>
+                </>
+              ) : (
+                <h3 style={{ fontSize: '2rem', fontWeight: 'bold' }}>
+                  {titulo.toUpperCase()}
+                </h3>
+              )}
+
               <button
                 style={{
                   marginTop: '1.5rem',

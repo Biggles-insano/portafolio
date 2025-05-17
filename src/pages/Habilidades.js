@@ -15,11 +15,9 @@ function Habilidades() {
       id="habilidades"
       style={{
         minHeight: '100vh',
-        padding: '3rem',
+        padding: '3rem 1.5rem',
         backgroundColor: '#f8f8f8',
         color: '#222',
-        maxWidth: '900px',
-        margin: '0 auto',
         fontFamily: "'Montserrat', sans-serif",
       }}
     >
@@ -27,23 +25,52 @@ function Habilidades() {
         Habilidades y CV
       </h2>
 
-      <p style={{ fontSize: '1.1rem', marginBottom: '2rem', lineHeight: '1.6' }}>
+      <p style={{
+        fontSize: '1.1rem',
+        marginBottom: '2rem',
+        lineHeight: '1.6',
+        maxWidth: '800px',
+        marginInline: 'auto'
+      }}>
         Soy estudiante de Ingeniería en Ciencias de la Computación con habilidades enfocadas en liderazgo, creatividad y trabajo en equipo. Mi experiencia incluye desarrollo de software, análisis y comunicación efectiva, buscando siempre soluciones prácticas y eficientes.
       </p>
 
-      <h3 style={{ fontWeight: '600', marginBottom: '1rem' }}>Habilidades destacadas:</h3>
-      <ul style={{ listStyle: 'none', paddingLeft: 0, marginBottom: '2rem', display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
+      <h3 style={{ fontWeight: '600', marginBottom: '1rem', textAlign: 'center' }}>
+        Habilidades destacadas:
+      </h3>
+
+      <ul style={{
+        listStyle: 'none',
+        paddingLeft: 0,
+        marginBottom: '2rem',
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        gap: '1rem'
+      }}>
         {habilidades.map((hab) => (
           <li
             key={hab}
             style={{
-              backgroundColor: '#e10600',
-              color: '#fff',
-              padding: '0.6rem 1.2rem',
-              borderRadius: '20px',
-              fontWeight: '600',
+              border: '1.5px solid #333',
+              color: '#333',
+              backgroundColor: 'transparent',
+              padding: '0.5rem 1.2rem',
+              borderRadius: '40px',
+              fontWeight: 500,
               fontSize: '1rem',
-              boxShadow: '0 2px 6px rgba(0,0,0,0.15)',
+              letterSpacing: '0.5px',
+              transition: 'all 0.3s ease',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#e10600';
+              e.currentTarget.style.color = '#fff';
+              e.currentTarget.style.borderColor = '#e10600';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'transparent';
+              e.currentTarget.style.color = '#333';
+              e.currentTarget.style.borderColor = '#333';
             }}
           >
             {hab}
@@ -56,21 +83,25 @@ function Habilidades() {
           href="/CV Samuel Mejía.pdf"
           download
           style={{
-            backgroundColor: '#e10600',
-            color: '#fff',
+            display: 'inline-block',
+            border: '1.5px solid #e10600',
+            backgroundColor: 'transparent',
+            color: '#e10600',
             padding: '0.8rem 2rem',
-            borderRadius: '30px',
+            borderRadius: '40px',
             textDecoration: 'none',
-            fontWeight: '700',
+            fontWeight: 600,
             fontSize: '1.1rem',
-            boxShadow: '0 4px 10px rgba(225,6,0,0.5)',
-            transition: 'background-color 0.3s ease',
+            letterSpacing: '1px',
+            transition: 'all 0.3s ease',
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = '#b20400';
+            e.currentTarget.style.backgroundColor = '#e10600';
+            e.currentTarget.style.color = '#fff';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = '#e10600';
+            e.currentTarget.style.backgroundColor = 'transparent';
+            e.currentTarget.style.color = '#e10600';
           }}
         >
           Descargar CV

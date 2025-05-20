@@ -22,10 +22,11 @@ function App() {
         minHeight: '100vh',
         backgroundImage: "url('/pruebados.png')", 
         backgroundRepeat: 'no-repeat',
-        backgroundSize: '100% auto', // 
+        backgroundSize: '100% auto', 
         backgroundPosition: 'top center',
-        backgroundAttachment: 'scroll', // 
+        backgroundAttachment: 'scroll',  
         scrollBehavior: 'smooth',
+        backgroundColor: '#A8E61C'
       }}
     >
       {loading ? (

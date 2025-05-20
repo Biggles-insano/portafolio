@@ -4,25 +4,29 @@ const proyectos = [
   {
     id: 1,
     titulo: 'by Víctor Mejía',
+    descripcion: 'Portafolio visual y profesional de presentación personal.',
     imagen: 'https://cdn.ferrari.com/images/collections/new-arrivals.jpg',
     enlace: 'https://github.com/Biggles-insano/byvictormejia',
   },
   {
     id: 2,
     titulo: 'API de Incidentes',
-    imagen: 'https://cdn.ferrari.com/images/magazine/speed-beauty.jpg',
+    descripcion: 'API REST para registrar y consultar incidentes técnicos.',
+    imagen: 'apidos.png',
     enlace: 'https://github.com/Biggles-insano/api',
   },
   {
     id: 3,
-    titulo: 'Cronómetro con Node.js',
-    imagen: 'https://cdn.ferrari.com/images/racing/cars.jpg',
+    titulo: 'Cronómetro usando useRef',
+    descripcion: 'Cronómetro interactivo con backend en tiempo real.',
+    imagen: 'useref.png',
     enlace: 'https://github.com/Biggles-insano/cronometro',
   },
   {
     id: 4,
     titulo: 'useContext',
-    imagen: 'https://cdn.ferrari.com/images/experiences/events.jpg',
+    descripcion: 'Ejemplo práctico del uso de React Context API.',
+    imagen: 'usecontextdos.png',
     enlace: 'https://github.com/Biggles-insano/usecontext',
   },
 ];
@@ -31,14 +35,11 @@ function Proyectos() {
   return (
     <section
       id="proyectos"
-    
       style={{
-        padding: '0',
+        padding: '3rem 0',
         backgroundColor: 'transparent',
         color: '#fff',
         minHeight: '100vh',
-        padding: '3rem 0'
-
       }}
     >
       <h2 style={{ textAlign: 'center', margin: '3rem 0', fontSize: '2.5rem', fontWeight: 'bold' }}>
@@ -55,7 +56,7 @@ function Proyectos() {
           height: 'calc(100vh - 120px)',
         }}
       >
-        {proyectos.map(({ id, titulo, imagen, enlace }) => (
+        {proyectos.map(({ id, titulo, descripcion, imagen, enlace }) => (
           <a
             href={enlace}
             key={id}
@@ -65,6 +66,7 @@ function Proyectos() {
               color: '#fff',
               textDecoration: 'none',
               overflow: 'hidden',
+              height: '320px',
             }}
             target="_blank"
             rel="noopener noreferrer"
@@ -72,83 +74,60 @@ function Proyectos() {
             <img
               src={imagen}
               alt={titulo}
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                transition: 'transform 0.5s ease',
-              }}
               className="img-proyecto"
             />
-            <div
-              className="overlay"
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                backgroundColor: 'rgba(0,0,0,0.4)',
-                opacity: 0,
-                transition: 'opacity 0.4s ease',
-                textAlign: 'center',
-                padding: '1rem',
-              }}
-            >
-              {titulo.includes(' - ') ? (
-                <>
-                  <p style={{ fontSize: '1rem', letterSpacing: '3px', marginBottom: '0.5rem' }}>
-                    {titulo.split(' - ')[0].toUpperCase()}
-                  </p>
-                  <h3 style={{ fontSize: '2rem', fontWeight: 'bold' }}>
-                    {titulo.split(' - ')[1].toUpperCase()}
-                  </h3>
-                </>
-              ) : (
-                <h3 style={{ fontSize: '2rem', fontWeight: 'bold' }}>
-                  {titulo.toUpperCase()}
-                </h3>
-              )}
-
-              <button
-                style={{
-                  marginTop: '1.5rem',
-                  border: '1.5px solid white',
-                  backgroundColor: 'transparent',
-                  color: 'white',
-                  padding: '0.5rem 1.5rem',
-                  fontWeight: 'bold',
-                  cursor: 'pointer',
-                  letterSpacing: '2px',
-                  textTransform: 'uppercase',
-                  transition: 'background-color 0.3s ease',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'white';
-                  e.currentTarget.style.color = '#111';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                  e.currentTarget.style.color = 'white';
-                }}
-              >
-                Descubrir
-              </button>
+            <div className="overlay">
+              <h3 style={{ fontSize: '1.8rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>
+                {titulo}
+              </h3>
+              <p style={{ fontSize: '1rem', maxWidth: '80%' }}>{descripcion}</p>
             </div>
           </a>
         ))}
       </div>
 
       <style>{`
+        a {
+          border: none;
+          outline: none;
+        }
+
+        .img-proyecto {
+          width: 100%;
+          height: 100%;
+          max-height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+          border-radius: 8px;
+        }
+
+        .overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          background-color: rgba(0,0,0,0);
+          opacity: 0;
+          transition: all 0.4s ease;
+          text-align: center;
+          padding: 1rem;
+          pointer-events: none;
+          z-index: 1;
+        }
+
         a:hover .img-proyecto {
           transform: scale(1.1);
+          opacity: 0;
         }
+
         a:hover .overlay {
           opacity: 1;
+          background-color: rgba(0, 0, 0, 0.6);
         }
       `}</style>
     </section>

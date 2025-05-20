@@ -4,5 +4,40 @@ html, body, #root {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Fredoka', sans-serif;
+  color: #fff;
+  background-color: #000;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, p, a {
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+  color: #FFD700;
+}
+
+h2 {
+  color: #00C4FF;
+}
+
+a {
+  color: #FF4C98;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.proyectos-section {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s ease-out;
+}
+
+.proyectos-section.active {
+  opacity: 1;
+  transform: translateY(0);
 }

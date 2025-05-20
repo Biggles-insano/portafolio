@@ -4,6 +4,7 @@ import LoadingScreen from './components/LoadingScreen';
 import LandingPage from './pages/LandingPage';
 import Proyectos from './pages/Proyectos';
 import Habilidades from './pages/Habilidades';
+import Ascensor from './pages/Ascensor';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -20,7 +21,7 @@ function App() {
     <div
       style={{
         minHeight: '100vh',
-        backgroundImage: "url('/pruebados.png')", 
+        backgroundImage: "url('/fondo.png')", 
         backgroundRepeat: 'no-repeat',
         backgroundSize: '100% auto', 
         backgroundPosition: 'top center',
@@ -33,6 +34,7 @@ function App() {
         <LoadingScreen />
       ) : (
         <div style={{ paddingTop: '5px' }}>
+          <Ascensor />
           <LandingPage />
           <Proyectos />
           <Habilidades />
